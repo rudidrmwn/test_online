@@ -13,7 +13,7 @@
 
     <body>
         <div class="container mt-5">
-            @foreach($customersByCity as $customer)
+            @foreach($customersByCity as $customers)
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -24,12 +24,14 @@
                 </tr>
                 </thead>
                 <tbody>
+                    @foreach($customers as $customer)
                         <tr>
                             <td>{{ $customer->name }}</td>
                             <td>{{ $customer->age }}</td>
                             <td>{{ $customer->gender }}</td>
                             <td>{{ $customer->city }}</td>
                         </tr>
+                    @endforeach
                 </tbody>
             </table>
             @endforeach

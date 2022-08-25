@@ -16,8 +16,7 @@ class CustomerController extends Controller
 
     public function cities() 
     {
-        $customersByCity = Customer::get();
-
+        $customersByCity = Customer::whereNotNull('city')->orderBy('city', 'DESC')->get()->groupBy('city');
         return view('customers.city', compact('customersByCity'));
     }
 }
